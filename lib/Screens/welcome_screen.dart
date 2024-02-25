@@ -1,3 +1,4 @@
+import 'package:briefnet/Screens/Membership/start_membership.dart';
 import 'package:briefnet/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -75,8 +76,27 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   borderRadius: BorderRadius.circular(30.0),
                   color: Colors.transparent,
                   child: TextButton(
-                    onPressed: () => Navigator.of(context).push(
-                        CupertinoPageRoute(builder: (context) => const Home())),
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        PageRouteBuilder(
+                          pageBuilder: (_, __, ___) =>
+                              const MembershipOptionsScreen(),
+                          transitionsBuilder:
+                              (context, animation, secondaryAnimation, child) {
+                            var begin = const Offset(1.0, 0.0);
+                            var end = Offset.zero;
+                            var curve = Curves.ease;
+                            var tween = Tween(begin: begin, end: end)
+                                .chain(CurveTween(curve: curve));
+                            var offsetAnimation = animation.drive(tween);
+                            return SlideTransition(
+                              position: offsetAnimation,
+                              child: child,
+                            );
+                          },
+                        ),
+                      );
+                    },
                     style: TextButton.styleFrom(
                       backgroundColor: CupertinoColors.systemYellow,
                       // primary: Colors.white,
