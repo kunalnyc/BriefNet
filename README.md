@@ -18,7 +18,6 @@ At BriefNet, we understand that every learner is unique. That's why our platform
 Experience seamless learning across devices with our intuitive and user-friendly interface. Whether you're on your desktop, tablet, or smartphone, BriefNet adapts to your screen size and provides a consistent experience anytime, anywhere.
 
 # Screenshots
-![Screenshot 1](assets/overview/s1.png)
 <img src="assets/overview/s1.png" width="400">
 
 # Get Started
