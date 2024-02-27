@@ -15,12 +15,14 @@ class MembershipOptionsScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         backgroundColor: CupertinoColors.black,
         centerTitle: true,
-        title: const Text(
+        title: Text(
           'Choose Your Membership Plan',
-          style: TextStyle(
-            color: CupertinoColors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
+          style: GoogleFonts.poppins(
+            textStyle: const TextStyle(
+              color: CupertinoColors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
           ),
         ),
       ),
@@ -35,14 +37,22 @@ class MembershipOptionsScreen extends StatelessWidget {
               context: context,
               planName: 'Basic',
               price: '\$9.99/month',
-              features: ['Access to basic courses', 'Limited content', 'Good sound quality'],
+              features: [
+                'Access to basic courses',
+                'Limited content',
+                'Good sound quality'
+              ],
             ),
             _buildMembershipPlanCard(
               soundQuality: 'Great',
               context: context,
               planName: 'Standard',
               price: '\$19.99/month',
-              features: ['Access to all courses', 'HD video streaming', 'Great sound quality'],
+              features: [
+                'Access to all courses',
+                'HD video streaming',
+                'Great sound quality'
+              ],
             ),
             _buildMembershipPlanCard(
               soundQuality: 'Excellent',
@@ -61,7 +71,11 @@ class MembershipOptionsScreen extends StatelessWidget {
               context: context,
               planName: 'Free',
               price: '\$0.00/month',
-              features: ['Access to all courses', 'HD and 4K video streaming','Excellent sound quality'],
+              features: [
+                'Access to all courses',
+                'HD and 4K video streaming',
+                'Excellent sound quality'
+              ],
             ),
             // Add more membership plan cards as needed
           ],
@@ -127,7 +141,7 @@ class MembershipOptionsScreen extends StatelessWidget {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) => PaymentScreen(
-                      price: price,
+                        price: price,
                         selectedPlan: planName), // Pass the selected plan name
                   ),
                 );

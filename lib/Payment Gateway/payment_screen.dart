@@ -1,4 +1,4 @@
-import 'package:briefnet/Screens/Membership/start_membership.dart';
+import 'package:briefnet/Screens/celebrations_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -93,25 +93,42 @@ class PaymentScreen extends StatelessWidget {
                   color: Colors.transparent,
                   child: TextButton(
                     onPressed: () {
-                      Navigator.of(context).push(
-                        PageRouteBuilder(
-                          pageBuilder: (_, __, ___) =>
-                              const MembershipOptionsScreen(),
-                          transitionsBuilder:
-                              (context, animation, secondaryAnimation, child) {
-                            var begin = const Offset(1.0, 0.0);
-                            var end = Offset.zero;
-                            var curve = Curves.ease;
-                            var tween = Tween(begin: begin, end: end)
-                                .chain(CurveTween(curve: curve));
-                            var offsetAnimation = animation.drive(tween);
-                            return SlideTransition(
-                              position: offsetAnimation,
-                              child: child,
+                      if (selectedPlan == 'Free') {
+                        // Navigate to HomeScreen if the Free plan is selected
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) =>  CelebrationScreen(),
+                          ),
+                        );
+                      } else {
+                        showCupertinoDialog(
+                          context:
+                              context, // Use the context from the current widget tree
+                          builder: (BuildContext context) {
+                            return CupertinoAlertDialog(
+                              title: const Text('Payment'),
+                              content: const Text(
+                                  'Retry payment to continue enjoying BriefNet'),
+                              actions: <Widget>[
+                                CupertinoDialogAction(
+                                  child: const Text('Sure'),
+                                  onPressed: () {
+                                    Navigator.of(context)
+                                        .pop(); // Close the dialog
+                                  },
+                                ),
+                                CupertinoDialogAction(
+                                  child: const Text('Cancel'),
+                                  onPressed: () {
+                                    Navigator.of(context)
+                                        .pop(); // Close the dialog
+                                  },
+                                ),
+                              ],
                             );
                           },
-                        ),
-                      );
+                        );
+                      }
                     },
                     style: TextButton.styleFrom(
                       backgroundColor: CupertinoColors.systemYellow,
