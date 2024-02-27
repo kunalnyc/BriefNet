@@ -1,4 +1,4 @@
-import 'package:briefnet/Screens/home_screen.dart';
+import 'package:briefnet/viemo/viemo_ui.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -67,7 +67,7 @@ class _HomeState extends State<Home> {
           });
         },
         children: [
-          const HomeScreen(),
+         const NetflixLikeScreen(),
           SearchScreen(),
           ResearchScreen(),
           ProfileScreen(),
