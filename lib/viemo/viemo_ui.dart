@@ -1,8 +1,6 @@
 import 'package:briefnet/Screens/Membership/start_membership.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:video_player/video_player.dart';
 
 class Video {
   final String title;
