@@ -1,3 +1,4 @@
+import 'package:briefnet/Screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -43,6 +44,20 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                CupertinoIcons.tv,
+                color: CupertinoColors.white,
+              )),
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                CupertinoIcons.search,
+                color: CupertinoColors.white,
+              )),
+        ],
       ),
       body: PageView(
         controller: _pageController,
@@ -75,7 +90,7 @@ class _HomeState extends State<Home> {
               color: CupertinoColors.white,
               backgroundColor: CupertinoColors.black,
               rippleColor: Colors.grey[300]!,
-              hoverColor: Colors.grey[100]!,
+              hoverColor: Colors.transparent,
               gap: 8,
               activeColor: CupertinoColors.systemYellow,
               iconSize: 24,
@@ -114,20 +129,6 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'Home Screen Content',
-        style: TextStyle(fontSize: 20),
       ),
     );
   }

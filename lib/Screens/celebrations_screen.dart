@@ -148,25 +148,5 @@ class _CelebrationScreenState extends State<CelebrationScreen>
   }
 }
 
-class HomeScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-      ),
-      body: Center(
-        child: Text(
-          'Home Screen',
-          style: TextStyle(fontSize: 24),
-        ),
-      ),
-    );
-  }
-}
 
-void main() {
-  runApp(MaterialApp(
-    home: CelebrationScreen(),
-  ));
-}
+
