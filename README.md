@@ -19,8 +19,8 @@ Experience seamless learning across devices with our intuitive and user-friendly
 
 # Screenshots
 <img src="assets/overview/s1.png" width="400"> <img src="assets/overview/s4.png" width="400">
-<img src="assets/overview/s2.png" width="400">
-<img src="assets/overview/s3.png" width="400">
+<img src="assets/overview/s2.png" width="400"> <img src="assets/overview/s5.png" width="400">
+<img src="assets/overview/s3.png" width="400"> <img src="assets/overview/s6.png" width="400">
 
 # Get Started
 Ready to embark on your journey of discovery with BriefNet? Sign up today and unlock a world of knowledge at your fingertips!

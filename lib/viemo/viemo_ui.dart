@@ -1,6 +1,7 @@
 import 'package:briefnet/Screens/Membership/start_membership.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:video_player/video_player.dart';
 
 class Video {
@@ -16,9 +17,10 @@ class Video {
 }
 
 class NetflixLikeScreen extends StatefulWidget {
-  const NetflixLikeScreen({Key? key}) : super(key: key);
+  const NetflixLikeScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _NetflixLikeScreenState createState() => _NetflixLikeScreenState();
 }
 
@@ -34,7 +36,6 @@ class _NetflixLikeScreenState extends State<NetflixLikeScreen> {
   ];
 
 // Store the currently playing video ID
-  late VideoPlayerController _controller;
 
   @override
   void initState() {
@@ -256,17 +257,171 @@ class _NetflixLikeScreenState extends State<NetflixLikeScreen> {
                     ),
                   ),
                 ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 12.0),
+                child: Row(
+                  children: [
+                    Text(
+                      'Pupular on BriefNet',
+                      style: TextStyle(
+                          color: CupertinoColors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w900),
+                    )
+                  ],
+                ),
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Card(
+                          color: Colors.black,
+                          child: Container(
+                            height: 180,
+                            width: 120,
+                            margin: const EdgeInsets.symmetric(
+                                vertical: 8, horizontal: 12),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  blurRadius: 5,
+                                  offset: const Offset(0, 3),
+                                ),
+                              ],
+                              border: Border.all(
+                                  color: Colors.white), // Add border color
+                              image: const DecorationImage(
+                                image: NetworkImage(
+                                    'https://images.unsplash.com/photo-1580654842920-37b786f32bfc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'), // Load network image
+                                fit: BoxFit
+                                    .cover, // Ensure the image covers the entire container
+                              ),
+                            ),
+                          ),
+                        ),
+                        Card(
+                          color: Colors.black,
+                          child: Container(
+                            height: 180,
+                            width: 120,
+                            margin: const EdgeInsets.symmetric(
+                                vertical: 8, horizontal: 12),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  blurRadius: 5,
+                                  offset: const Offset(0, 3),
+                                ),
+                              ],
+                              border: Border.all(
+                                  color: Colors.white), // Add border color
+                              image: const DecorationImage(
+                                image: NetworkImage(
+                                    'https://plus.unsplash.com/premium_photo-1675314167547-9cb4f72f145f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c2lsaWNvbiUyMHZhbGxleXxlbnwwfHwwfHx8MA%3D%3D'), // Load network image
+                                fit: BoxFit
+                                    .cover, // Ensure the image covers the entire container
+                              ),
+                            ),
+                          ),
+                        ),
+                        Card(
+                          color: Colors.black,
+                          child: Container(
+                            height: 180,
+                            width: 120,
+                            margin: const EdgeInsets.symmetric(
+                                vertical: 8, horizontal: 12),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  blurRadius: 5,
+                                  offset: const Offset(0, 3),
+                                ),
+                              ],
+                              border: Border.all(
+                                  color: Colors.white), // Add border color
+                              image: const DecorationImage(
+                                image: NetworkImage(
+                                    'https://plus.unsplash.com/premium_photo-1678566111481-8e275550b700?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'), // Load network image
+                                fit: BoxFit
+                                    .cover, // Ensure the image covers the entire container
+                              ),
+                            ),
+                          ),
+                        ),
+                        Card(
+                          color: Colors.black,
+                          child: Container(
+                            height: 180,
+                            width: 120,
+                            margin: const EdgeInsets.symmetric(
+                                vertical: 8, horizontal: 12),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  blurRadius: 5,
+                                  offset: const Offset(0, 3),
+                                ),
+                              ],
+                              border: Border.all(
+                                  color: Colors.white), // Add border color
+                              image: const DecorationImage(
+                                image: NetworkImage(
+                                    'https://images.unsplash.com/photo-1460881680858-30d872d5b530?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'), // Load network image
+                                fit: BoxFit
+                                    .cover, // Ensure the image covers the entire container
+                              ),
+                            ),
+                          ),
+                        ),
+                        Card(
+                          color: Colors.black,
+                          child: Container(
+                            height: 180,
+                            width: 120,
+                            margin: const EdgeInsets.symmetric(
+                                vertical: 8, horizontal: 12),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  blurRadius: 5,
+                                  offset: const Offset(0, 3),
+                                ),
+                              ],
+                              border: Border.all(
+                                  color: Colors.white), // Add border color
+                              image: const DecorationImage(
+                                image: NetworkImage(
+                                    'https://images.unsplash.com/photo-1523430410476-0185cb1f6ff9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'), // Load network image
+                                fit: BoxFit
+                                    .cover, // Ensure the image covers the entire container
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               )
             ],
           );
         },
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
   }
 }
