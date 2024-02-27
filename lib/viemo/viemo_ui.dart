@@ -46,11 +46,12 @@ class _NetflixLikeScreenState extends State<NetflixLikeScreen> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: ListView.builder(
-          itemCount: _videos.length,
-          itemBuilder: (context, index) {
-            final video = _videos[index];
+        itemCount: _videos.length,
+        itemBuilder: (context, index) {
+          final video = _videos[index];
 
-            return Column(children: [
+          return Column(
+            children: [
               GestureDetector(
                 // onTap: () {
                 //   setState(() {
@@ -117,53 +118,69 @@ class _NetflixLikeScreenState extends State<NetflixLikeScreen> {
                           ],
                         ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            TextButton(
-                              onPressed: () {
-                                Navigator.of(context).push(
-                                  PageRouteBuilder(
-                                    pageBuilder: (_, __, ___) =>
-                                        const MembershipOptionsScreen(),
-                                    transitionsBuilder: (context, animation,
-                                        secondaryAnimation, child) {
-                                      var begin = const Offset(1.0, 0.0);
-                                      var end = Offset.zero;
-                                      var curve = Curves.ease;
-                                      var tween = Tween(begin: begin, end: end)
-                                          .chain(CurveTween(curve: curve));
-                                      var offsetAnimation =
-                                          animation.drive(tween);
-                                      return SlideTransition(
-                                        position: offsetAnimation,
-                                        child: child,
-                                      );
-                                    },
-                                  ),
-                                );
-                              },
-                              style: TextButton.styleFrom(
-                                backgroundColor: CupertinoColors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(4),
-                                  side: BorderSide(
-                                    color: Theme.of(context).brightness ==
-                                            Brightness.light
-                                        ? CupertinoColors.white
-                                        : CupertinoColors.systemYellow,
-                                    width: 1.5,
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).push(
+                                    PageRouteBuilder(
+                                      pageBuilder: (_, __, ___) =>
+                                          const MembershipOptionsScreen(),
+                                      transitionsBuilder: (context, animation,
+                                          secondaryAnimation, child) {
+                                        var begin = const Offset(1.0, 0.0);
+                                        var end = Offset.zero;
+                                        var curve = Curves.ease;
+                                        var tween = Tween(
+                                                begin: begin, end: end)
+                                            .chain(CurveTween(curve: curve));
+                                        var offsetAnimation =
+                                            animation.drive(tween);
+                                        return SlideTransition(
+                                          position: offsetAnimation,
+                                          child: child,
+                                        );
+                                      },
+                                    ),
+                                  );
+                                },
+                                style: TextButton.styleFrom(
+                                  backgroundColor: CupertinoColors.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(4),
+                                    side: BorderSide(
+                                      color: Theme.of(context).brightness ==
+                                              Brightness.light
+                                          ? CupertinoColors.white
+                                          : CupertinoColors.systemYellow,
+                                      width: 1.5,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              child: const Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 47.0, vertical: 7.0),
-                                child: Text(
-                                  "Play",
-                                  style: TextStyle(
-                                    color: CupertinoColors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15,
+                                child: const Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 40.0, vertical: 7.0),
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        CupertinoIcons.play_fill,
+                                        color: CupertinoColors.black,
+                                      ),
+                                      SizedBox(
+                                        width: 4,
+                                      ),
+                                      Text(
+                                        "Play",
+                                        style: TextStyle(
+                                          color: CupertinoColors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
@@ -202,7 +219,7 @@ class _NetflixLikeScreenState extends State<NetflixLikeScreen> {
                                     side: BorderSide(
                                       color: Theme.of(context).brightness ==
                                               Brightness.light
-                                          ? CupertinoColors.darkBackgroundGray
+                                          ? CupertinoColors.tertiaryLabel
                                           : CupertinoColors.white,
                                       width: 1.5,
                                     ),
@@ -211,13 +228,24 @@ class _NetflixLikeScreenState extends State<NetflixLikeScreen> {
                                 child: const Padding(
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 30.0, vertical: 8.0),
-                                  child: Text(
-                                    "➕ My List",
-                                    style: TextStyle(
-                                      color: CupertinoColors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                    ),
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        CupertinoIcons.add,
+                                        color: CupertinoColors.white,
+                                      ),
+                                      SizedBox(
+                                        width: 4,
+                                      ),
+                                      Text(
+                                        "My List",
+                                        style: TextStyle(
+                                          color: CupertinoColors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
@@ -229,8 +257,10 @@ class _NetflixLikeScreenState extends State<NetflixLikeScreen> {
                   ),
                 ),
               )
-            ]);
-          }),
+            ],
+          );
+        },
+      ),
     );
   }
 
