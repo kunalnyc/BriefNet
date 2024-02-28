@@ -40,8 +40,10 @@ dependencies:
   confetti: ^0.7.0
   google_nav_bar: ^5.0.6
   video_player: ^2.8.2
+  firebase_core: ^2.25.4
   vimeo_video_player: ^0.0.12
   visibility_detector: ^0.4.0+2
+  cloud_firestore: ^4.15.5
   webview_flutter: ^4.7.0
 
 dev_dependencies:

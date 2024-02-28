@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "909687691638",
+    "project_id": "briefnet-dde2d",
+    "storage_bucket": "briefnet-dde2d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909687691638:android:d085a4a0a929aede2b8257",
+        "android_client_info": {
+          "package_name": "com.briefio.briefnet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0UafL4SbGn1NKh4CxqAOv8CRAJOmjHlg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

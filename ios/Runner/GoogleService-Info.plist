@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyCTPFVM2ENLubYQMgWnaPU74HcLTzpQqZ0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>909687691638</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.briefnet</string>
+	<key>PROJECT_ID</key>
+	<string>briefnet-dde2d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>briefnet-dde2d.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:909687691638:ios:e7c9753956f8e27d2b8257</string>
+</dict>
+</plist>
