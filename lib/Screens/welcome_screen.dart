@@ -1,3 +1,4 @@
+import 'package:briefnet/Admin/Auth/admin_cred.dart';
 import 'package:briefnet/Screens/Membership/start_membership.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -75,6 +76,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   borderRadius: BorderRadius.circular(30.0),
                   color: Colors.transparent,
                   child: TextButton(
+                    onLongPress: () => Navigator.of(context).push(
+                        CupertinoPageRoute(
+                            builder: (context) => SignInScreen())),
                     onPressed: () {
                       Navigator.of(context).push(
                         PageRouteBuilder(
