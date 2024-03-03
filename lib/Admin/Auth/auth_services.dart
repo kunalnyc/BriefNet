@@ -11,33 +11,58 @@ class AuthService {
     String displayName,
   ) async {
     try {
-      // Attempt to sign in with email and password
       UserCredential result = await _auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
 
-      // If successful, update user profile with display name
-      await result.user!.updateDisplayName(displayName);
+      // If the user doesn't exist, create a new user
+      if (result.user == null) {
+        result = await _auth.createUserWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
+        // Update user profile with display name
+        await result.user!.updateDisplayName(displayName);
+      }
 
       // Create admin document in Firestore (assuming this is the intended behavior)
       await _createAdminDocument(result.user!.uid, displayName, email);
 
       return result.user;
     } on FirebaseAuthException catch (error) {
-      // Handle specific auth errors gracefully, e.g.:
+      // Handle specific auth errors gracefully
       switch (error.code) {
         case 'user-not-found':
-          print('User not found. Please check the email address.');
-          break;
+          // User does not exist, attempt to create a new user
+          try {
+            UserCredential newUser = await _auth.createUserWithEmailAndPassword(
+              email: email,
+              password: password,
+            );
+            // Update user profile with display name
+            await newUser.user!.updateDisplayName(displayName);
+
+            // Create admin document in Firestore (assuming this is the intended behavior)
+            await _createAdminDocument(newUser.user!.uid, displayName, email);
+
+            return newUser.user;
+          } catch (error) {
+            // ignore: avoid_print
+            print('Error creating new user: $error');
+            return null;
+          }
         case 'wrong-password':
+          // ignore: avoid_print
           print('Incorrect password. Please try again.');
           break;
         default:
+          // ignore: avoid_print
           print('An error occurred: ${error.message}');
       }
       return null;
     } catch (error) {
+      // ignore: avoid_print
       print('An unknown error occurred: $error');
       return null;
     }
@@ -48,17 +73,15 @@ class AuthService {
     String displayName,
     String email,
   ) async {
-    // ignore: unnecessary_null_comparison
-    if (uid != null) {
-      try {
-        await _firestore.collection('admins').doc(uid).set({
-          'displayName': displayName,
-          'email': email,
-          // Add other fields as needed
-        });
-      } catch (error) {
-        print('Error creating admin document: $error');
-      }
+    try {
+      await _firestore.collection('admins').doc(uid).set({
+        'displayName': displayName,
+        'email': email,
+        // Add other fields as needed
+      });
+    } catch (error) {
+      // ignore: avoid_print
+      print('Error creating admin document: $error');
     }
   }
 

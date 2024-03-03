@@ -1,6 +1,7 @@
 import 'package:briefnet/Screens/Membership/start_membership.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class IntroScreenPage extends StatefulWidget {
@@ -20,7 +21,8 @@ class _IntroScreenPageState extends State<IntroScreenPage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.00,
-        leading: IconButton(color: CupertinoColors.white,
+        leading: IconButton(
+          color: CupertinoColors.white,
           icon: const Icon(CupertinoIcons.back),
           onPressed: () {
             Navigator.of(context).pop();
@@ -41,7 +43,7 @@ class _IntroScreenPageState extends State<IntroScreenPage> {
             children: [
               const IntroSlide(
                 image:
-                    'https://images.unsplash.com/photo-1496065187959-7f07b8353c55?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHRlY2hub2xvZ3l8ZW58MHx8MHx8fDA%3D',
+                    'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGVkdWNhdGlvbnxlbnwwfHwwfHx8MA%3D%3D',
                 title: 'Welcome to BriefNet',
                 description: 'Discover a world of educational content.',
                 key: null,
@@ -49,13 +51,13 @@ class _IntroScreenPageState extends State<IntroScreenPage> {
               ),
               const IntroSlide(
                 image:
-                    'https://images.unsplash.com/photo-1611264327630-8090373c8cef?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHJlc2VhcmNoJTIwdGVjaG5vbG9neXxlbnwwfHwwfHx8MA%3D%3D',
+                    'https://images.unsplash.com/photo-1611262588019-db6cc2032da3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFjaW50b3NofGVufDB8fDB8fHww',
                 title: 'Learn Anywhere, Anytime',
                 description: 'Access courses and videos on the go.',
                 key: null,
                 tap: CupertinoButton(onPressed: null, child: Text('')),
               ),
-              IntroSlide(
+              IntroSlide2(
                 image:
                     'https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dGVjaG5vbG9neXxlbnwwfHwwfHx8MA%3D%3D',
                 title: 'Start Learning Today',
@@ -134,6 +136,60 @@ class IntroSlide extends StatelessWidget {
 
   // ignore: use_super_parameters
   const IntroSlide({
+    /// required Key key,
+    required this.image,
+    required this.title,
+    required this.description,
+    required this.tap,
+    required key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.network(
+          image,
+          height: 300,
+        ),
+        const SizedBox(height: 40),
+        Text(title,
+            style: GoogleFonts.crimsonText(
+              textStyle: const TextStyle(
+                color: CupertinoColors.systemYellow,
+                fontWeight: FontWeight.bold,
+                fontSize: 25,
+              ),
+            )),
+        const SizedBox(height: 20),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 40),
+          child: Text(description,
+              selectionColor: CupertinoColors.systemYellow,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.crimsonText(
+                textStyle: const TextStyle(
+                  color: CupertinoColors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              )),
+        ),
+        const SizedBox(height: 20),
+      ],
+    );
+  }
+}
+
+class IntroSlide2 extends StatelessWidget {
+  final String image;
+  final String title;
+  final String description;
+  final CupertinoButton tap;
+
+  // ignore: use_super_parameters
+  const IntroSlide2({
     /// required Key key,
     required this.image,
     required this.title,
