@@ -48,23 +48,49 @@ class AuthService {
 
             return newUser.user;
           } catch (error) {
-            // ignore: avoid_print
             print('Error creating new user: $error');
             return null;
           }
         case 'wrong-password':
-          // ignore: avoid_print
           print('Incorrect password. Please try again.');
           break;
         default:
-          // ignore: avoid_print
           print('An error occurred: ${error.message}');
       }
       return null;
     } catch (error) {
-      // ignore: avoid_print
       print('An unknown error occurred: $error');
       return null;
+    }
+  }
+
+  Future<void> signUpWithEmailAndPassword(
+    String email,
+    String password,
+    String displayName,
+  ) async {
+    try {
+      UserCredential newUser = await _auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      // Update user profile with display name
+      await newUser.user!.updateDisplayName(displayName);
+
+      // Create admin document in Firestore (assuming this is the intended behavior)
+      await _createAdminDocument(newUser.user!.uid, displayName, email);
+    } catch (error) {
+      print('Error creating new user: $error');
+      rethrow; // Rethrow the error to handle it in the calling code
+    }
+  }
+
+  Future<void> signOut() async {
+    try {
+      await _auth.signOut();
+    } catch (error) {
+      print('Error signing out: $error');
     }
   }
 
@@ -80,8 +106,8 @@ class AuthService {
         // Add other fields as needed
       });
     } catch (error) {
-      // ignore: avoid_print
       print('Error creating admin document: $error');
+      rethrow; // Rethrow the error to handle it in the calling code
     }
   }
 
