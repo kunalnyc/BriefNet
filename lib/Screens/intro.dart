@@ -18,6 +18,16 @@ class _IntroScreenPageState extends State<IntroScreenPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0.00,
+        leading: IconButton(color: CupertinoColors.white,
+          icon: const Icon(CupertinoIcons.back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        backgroundColor: CupertinoColors.black,
+      ),
       backgroundColor: CupertinoColors.black,
       body: Stack(
         children: [
@@ -164,7 +174,7 @@ class IntroSlide extends StatelessWidget {
                 ),
               )),
         ),
-        const SizedBox(height: 60),
+        const SizedBox(height: 20),
         CupertinoButton(
             onPressed: () {
               Navigator.of(context).push(

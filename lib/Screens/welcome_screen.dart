@@ -82,8 +82,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     onPressed: () {
                       Navigator.of(context).push(
                         PageRouteBuilder(
-                          pageBuilder: (_, __, ___) =>
-                              const IntroScreenPage(),
+                          pageBuilder: (_, __, ___) => const IntroScreenPage(),
                           transitionsBuilder:
                               (context, animation, secondaryAnimation, child) {
                             var begin = const Offset(1.0, 0.0);
@@ -117,7 +116,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 16.0, vertical: 8.0),
-                      child: Text("Continue Signup",
+                      child: Text("   Continue    ",
                           style: GoogleFonts.crimsonText(
                             textStyle: const TextStyle(
                               color: CupertinoColors.black,
