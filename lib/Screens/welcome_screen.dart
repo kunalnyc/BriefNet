@@ -1,5 +1,5 @@
 import 'package:briefnet/Admin/Auth/admin_cred.dart';
-import 'package:briefnet/Screens/Membership/start_membership.dart';
+import 'package:briefnet/Screens/intro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -83,7 +83,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       Navigator.of(context).push(
                         PageRouteBuilder(
                           pageBuilder: (_, __, ___) =>
-                              const MembershipOptionsScreen(),
+                              const IntroScreenPage(),
                           transitionsBuilder:
                               (context, animation, secondaryAnimation, child) {
                             var begin = const Offset(1.0, 0.0);
@@ -117,7 +117,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 16.0, vertical: 8.0),
-                      child: Text("Start Membership",
+                      child: Text("Continue Signup",
                           style: GoogleFonts.crimsonText(
                             textStyle: const TextStyle(
                               color: CupertinoColors.black,
