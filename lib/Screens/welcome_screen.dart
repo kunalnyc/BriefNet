@@ -130,37 +130,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
               ],
             ),
-            // Padding(
-            //   padding: const EdgeInsets.all(8.0),
-            //   child: CupertinoButton(
-            //     onPressed: () => Navigator.push(
-            //       context,
-            //       CupertinoPageRoute(
-            //         builder: (context) => const LoginScreen(),
-            //       ),
-            //     ),
-            //     padding:
-            //         const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-            //     child: Container(
-            //       decoration: BoxDecoration(
-            //         color: Colors.transparent,
-            //         borderRadius: BorderRadius.circular(12.0),
-            //         border: Border.all(
-            //           color: Colors.black.withOpacity(0.5),
-            //         ),
-            //       ),
-            //       child: const Center(
-            //         child: Text(
-            //           'Let\'s Chat',
-            //           style: TextStyle(
-            //             color: Colors.black,
-            //             fontWeight: FontWeight.bold,
-            //           ),
-            //         ),
-            //       ),
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ),
