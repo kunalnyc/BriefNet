@@ -1,4 +1,4 @@
-import 'package:briefnet/Admin/Auth/admin_cred.dart';
+import 'package:briefnet/Admin/Auth/signup.dart';
 import 'package:briefnet/Screens/intro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -78,7 +78,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   child: TextButton(
                     onLongPress: () => Navigator.of(context).push(
                         CupertinoPageRoute(
-                            builder: (context) => SignInScreen())),
+                            builder: (context) =>  SignUpScreen())),
                     onPressed: () {
                       Navigator.of(context).push(
                         PageRouteBuilder(

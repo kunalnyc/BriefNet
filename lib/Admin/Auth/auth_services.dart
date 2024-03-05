@@ -64,7 +64,7 @@ class AuthService {
     }
   }
 
-  Future<void> signUpWithEmailAndPassword(
+  Future<User?> createAccount(
     String email,
     String password,
     String displayName,
@@ -80,9 +80,11 @@ class AuthService {
 
       // Create admin document in Firestore (assuming this is the intended behavior)
       await _createAdminDocument(newUser.user!.uid, displayName, email);
+
+      return newUser.user;
     } catch (error) {
       print('Error creating new user: $error');
-      rethrow; // Rethrow the error to handle it in the calling code
+      return null;
     }
   }
 

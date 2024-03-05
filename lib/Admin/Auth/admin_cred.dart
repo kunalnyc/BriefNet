@@ -1,14 +1,16 @@
 import 'dart:io';
 
 import 'package:briefnet/Admin/Auth/auth_services.dart';
+import 'package:briefnet/viemo/viemo_ui.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+// Import your AuthService file
 
 class SignInScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController adminController = TextEditingController();
-  SignInScreen({super.key});
+
+  SignInScreen({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +23,11 @@ class SignInScreen extends StatelessWidget {
           automaticallyImplyLeading: false,
           backgroundColor: CupertinoColors.black,
           title: const Text(
-            'BriefNet Adminstration',
+            'BriefNet Administration',
             style: TextStyle(color: CupertinoColors.systemYellow),
           ),
         ),
         body: SingleChildScrollView(
-          //    physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -39,14 +40,6 @@ class SignInScreen extends StatelessWidget {
                 ),
                 const SizedBox(
                   height: 50,
-                ),
-                TextField(
-                  controller: adminController,
-                  style: const TextStyle(color: Colors.white),
-                  decoration: const InputDecoration(
-                      labelText: 'Admin',
-                      suffixText: 'STAFF ONLY',
-                      suffixStyle: TextStyle(color: Colors.yellow)),
                 ),
                 TextField(
                   controller: emailController,
@@ -66,14 +59,25 @@ class SignInScreen extends StatelessWidget {
                 const SizedBox(height: 16.0),
                 CupertinoButton.filled(
                   borderRadius: BorderRadius.circular(30),
-                  onPressed: () {
-                    String displayName = adminController.text;
-                    String email = emailController.text;
-                    String password = passwordController.text;
-
-                    // Call your authentication logic here
-                    AuthService().signInWithEmailAndPassword(
-                        email, password, displayName);
+                  onPressed: () async {
+                    // Create an instance of AuthService
+                    final AuthService authService = AuthService();
+                    // Call the signInWithEmailAndPassword method using the instance
+                    final user = await authService.signInWithEmailAndPassword(
+                      emailController.text.trim(),
+                      passwordController.text.trim(),
+                      // Optionally pass display name if needed
+                      '',
+                    );
+                    // Handle user sign-in result here
+                    if (user != null) {
+                      // ignore: use_build_context_synchronously
+                      Navigator.of(context).pushReplacement(CupertinoPageRoute(
+                          builder: (context) => const NetflixLikeScreen()));
+                      // User signed in successfully, navigate to next screen or perform other actions
+                    } else {
+                      // Handle sign-in failure
+                    }
                   },
                   child: const Text(
                     'Sign In',
