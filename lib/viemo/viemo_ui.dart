@@ -1,7 +1,6 @@
 import 'package:briefnet/Screens/Membership/start_membership.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class Video {
   final String title;
@@ -52,12 +51,134 @@ class _NetflixLikeScreenState extends State<NetflixLikeScreen> {
 
           return Column(
             children: [
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: ButtonBar(
+                      alignment: MainAxisAlignment.start,
+                      children: [
+                        Material(
+                          borderRadius: BorderRadius.circular(30.0),
+                          color: Colors.white,
+                          child: TextButton(
+                            onPressed: () {},
+                            style: TextButton.styleFrom(
+                              backgroundColor: Colors.transparent,
+                              // primary: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30.0),
+                                side: BorderSide(
+                                  color: Theme.of(context).brightness ==
+                                          Brightness.light
+                                      ? CupertinoColors.darkBackgroundGray
+                                      : CupertinoColors.white,
+                                  width: 1.5,
+                                ),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 8.0, vertical: 8.0),
+                              child: Text(
+                                "New Arrivals",
+                                style: TextStyle(
+                                  color: Theme.of(context).brightness ==
+                                          Brightness.light
+                                      ? CupertinoColors.darkBackgroundGray
+                                      : CupertinoColors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  ButtonBar(
+                    alignment: MainAxisAlignment.start,
+                    children: [
+                      Material(
+                        borderRadius: BorderRadius.circular(30.0),
+                        color: Colors.white,
+                        child: TextButton(
+                          onPressed: () {},
+                          style: TextButton.styleFrom(
+                            backgroundColor: Colors.transparent,
+                            // primary: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0),
+                              side: BorderSide(
+                                color: Theme.of(context).brightness ==
+                                        Brightness.light
+                                    ? CupertinoColors.darkBackgroundGray
+                                    : CupertinoColors.white,
+                                width: 1.5,
+                              ),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8.0, vertical: 8.0),
+                            child: Text(
+                              "Categories",
+                              style: TextStyle(
+                                color: Theme.of(context).brightness ==
+                                        Brightness.light
+                                    ? CupertinoColors.darkBackgroundGray
+                                    : CupertinoColors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  ButtonBar(
+                    alignment: MainAxisAlignment.start,
+                    children: [
+                      Material(
+                        borderRadius: BorderRadius.circular(30.0),
+                        color: Colors.white,
+                        child: TextButton(
+                          onPressed: () {},
+                          style: TextButton.styleFrom(
+                            backgroundColor: Colors.transparent,
+                            // primary: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0),
+                              side: BorderSide(
+                                color: Theme.of(context).brightness ==
+                                        Brightness.light
+                                    ? CupertinoColors.darkBackgroundGray
+                                    : CupertinoColors.white,
+                                width: 1.5,
+                              ),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8.0, vertical: 8.0),
+                            child: Text(
+                              "STEM",
+                              style: TextStyle(
+                                color: Theme.of(context).brightness ==
+                                        Brightness.light
+                                    ? CupertinoColors.darkBackgroundGray
+                                    : CupertinoColors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
               GestureDetector(
-                // onTap: () {
-                //   setState(() {
-                //     _currentVideoId = video.videoId;
-                //   });
-                // },
                 child: Card(
                   color: Colors.black,
                   child: Container(
