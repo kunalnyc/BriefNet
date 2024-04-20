@@ -1,15 +1,16 @@
 import 'package:briefnet/Admin/Auth/admin_cred.dart';
 import 'package:briefnet/Admin/Auth/auth_services.dart';
 import 'package:briefnet/home.dart';
-import 'package:briefnet/viemo/viemo_ui.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
- // Import your AuthService file
+// Import your AuthService file
 
 class SignUpScreen extends StatelessWidget {
- SignUpScreen({super.key,});
+  SignUpScreen({
+    super.key,
+  });
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -25,10 +26,12 @@ class SignUpScreen extends StatelessWidget {
       final String displayName = displayNameController.text.trim();
 
       if (email.isNotEmpty && password.isNotEmpty && displayName.isNotEmpty) {
-        final User? newUser = await authService.createAccount(email, password, displayName);
+        final User? newUser =
+            await authService.createAccount(email, password, displayName);
         if (newUser != null) {
           // ignore: use_build_context_synchronously
-          Navigator.of(context).pushReplacement(CupertinoPageRoute(builder: (context)=>const Home()));
+          Navigator.of(context).pushReplacement(
+              CupertinoPageRoute(builder: (context) => const Home()));
           // Account creation successful, navigate to the next screen or perform any other action
           // For example, Navigator.pushReplacementNamed(context, '/home');
         } else {
@@ -95,7 +98,8 @@ class SignUpScreen extends StatelessWidget {
                 const SizedBox(width: 5),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).push(CupertinoPageRoute(builder: (context)=>SignInScreen()));
+                    Navigator.of(context).push(CupertinoPageRoute(
+                        builder: (context) => SignInScreen()));
                     // Navigate to the sign-in screen
                   },
                   child: const Text(
