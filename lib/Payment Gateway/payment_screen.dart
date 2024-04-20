@@ -97,7 +97,7 @@ class PaymentScreen extends StatelessWidget {
                         // Navigate to HomeScreen if the Free plan is selected
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
-                            builder: (context) =>  CelebrationScreen(),
+                            builder: (context) =>  const CelebrationScreen(),
                           ),
                         );
                       } else {

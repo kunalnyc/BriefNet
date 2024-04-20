@@ -1,5 +1,6 @@
 import 'package:briefnet/Admin/Auth/admin_cred.dart';
 import 'package:briefnet/Admin/Auth/auth_services.dart';
+import 'package:briefnet/home.dart';
 import 'package:briefnet/viemo/viemo_ui.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -27,7 +28,7 @@ class SignUpScreen extends StatelessWidget {
         final User? newUser = await authService.createAccount(email, password, displayName);
         if (newUser != null) {
           // ignore: use_build_context_synchronously
-          Navigator.of(context).pushReplacement(CupertinoPageRoute(builder: (context)=>const NetflixLikeScreen()));
+          Navigator.of(context).pushReplacement(CupertinoPageRoute(builder: (context)=>const Home()));
           // Account creation successful, navigate to the next screen or perform any other action
           // For example, Navigator.pushReplacementNamed(context, '/home');
         } else {

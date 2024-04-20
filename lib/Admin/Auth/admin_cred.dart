@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:briefnet/Admin/Auth/auth_services.dart';
+import 'package:briefnet/home.dart';
 import 'package:briefnet/viemo/viemo_ui.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -73,7 +74,7 @@ class SignInScreen extends StatelessWidget {
                     if (user != null) {
                       // ignore: use_build_context_synchronously
                       Navigator.of(context).pushReplacement(CupertinoPageRoute(
-                          builder: (context) => const NetflixLikeScreen()));
+                          builder: (context) => const Home()));
                       // User signed in successfully, navigate to next screen or perform other actions
                     } else {
                       // Handle sign-in failure
