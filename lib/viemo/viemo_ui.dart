@@ -1,4 +1,5 @@
 import 'package:briefnet/Screens/Membership/start_membership.dart';
+import 'package:briefnet/Screens/video/video_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -62,7 +63,10 @@ class _NetflixLikeScreenState extends State<NetflixLikeScreen> {
                           borderRadius: BorderRadius.circular(30.0),
                           color: Colors.white,
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context).push(CupertinoPageRoute(
+                                  builder: (context) => const VideoScreen()));
+                            },
                             style: TextButton.styleFrom(
                               backgroundColor: Colors.transparent,
                               // primary: Colors.white,

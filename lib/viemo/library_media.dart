@@ -26,10 +26,10 @@ class _LibraryScreenState extends State<LibraryScreen> {
   bool _isControllerInitialized = false;
 
   final List<String> _ids = [
-    'nPt8bK2gbaU',
-    'gQDByCdjUXw',
-    'iLnmTe5Q2Qw',
-    '_WoCV4c6XOE',
+    // 'nPt8bK2gbaU',
+    'vT1JzLTH4G4',
+    'OoUX-nOEjG0',
+    'h7iBpEHGVNc',
     'KmzdUe0RSJo',
     '6jZDSSZZxjQ',
     'p2lYr3vM_1w',
@@ -93,6 +93,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
         SystemChrome.setPreferredOrientations(DeviceOrientation.values);
       },
       player: YoutubePlayer(
+        
         controller: _controller,
         showVideoProgressIndicator: true,
         progressIndicatorColor: Colors.blueAccent,
@@ -130,20 +131,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
         },
       ),
       builder: (context, player) => Scaffold(
-        // appBar: AppBar(
-        //   leading: Padding(
-        //     padding: const EdgeInsets.only(left: 12.0),
-        //     child: Image.asset(
-        //       'assets/ypf.png',
-        //       fit: BoxFit.fitWidth,
-        //     ),
-        //   ),
-        //   title: const Text(
-        //     'Youtube Player Flutter',
-        //     style: TextStyle(color: Colors.white),
-        //   ),
-        //   actions: [],
-        // ),
+        backgroundColor: Colors.black,
         body: ListView(
           children: [
             player,
@@ -153,11 +141,11 @@ class _LibraryScreenState extends State<LibraryScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   _space,
-                  _text('Title', _videoMetaData.title),
+                  _text('Title', _videoMetaData.title,),
                   _space,
-                  _text('Channel', _videoMetaData.author),
+                  _text('Network', _videoMetaData.author),
                   _space,
-                  _text('Video Id', _videoMetaData.videoId),
+                  _text('BriefNet ID', _videoMetaData.videoId),
                   _space,
                   Row(
                     children: [
@@ -178,12 +166,12 @@ class _LibraryScreenState extends State<LibraryScreen> {
                     controller: _idController,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: 'Enter youtube \<video id\> or \<link\>',
-                      fillColor: Colors.blueAccent.withAlpha(20),
+                      hintText: 'Enter BreifNet ID',
+                      fillColor: Colors.yellow.withAlpha(20),
                       filled: true,
                       hintStyle: const TextStyle(
                         fontWeight: FontWeight.w300,
-                        color: Colors.blueAccent,
+                        color: Colors.white,
                       ),
                       suffixIcon: IconButton(
                         icon: const Icon(Icons.clear),
@@ -322,14 +310,14 @@ class _LibraryScreenState extends State<LibraryScreen> {
       text: TextSpan(
         text: '$title : ',
         style: const TextStyle(
-          color: Colors.blueAccent,
+          color: CupertinoColors.systemYellow,
           fontWeight: FontWeight.bold,
         ),
         children: [
           TextSpan(
             text: value,
             style: const TextStyle(
-              color: Colors.blueAccent,
+              color: Colors.white,
               fontWeight: FontWeight.w300,
             ),
           ),
