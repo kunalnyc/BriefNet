@@ -30,11 +30,11 @@ class _LibraryScreenState extends State<LibraryScreen> {
     'vT1JzLTH4G4',
     'OoUX-nOEjG0',
     'h7iBpEHGVNc',
-    'KmzdUe0RSJo',
-    '6jZDSSZZxjQ',
-    'p2lYr3vM_1w',
-    '7QUtEmBT_-w',
-    '34_PXCzGw1M',
+    'd14TUNcbn1k',
+    'bNb2fEVKeEo',
+    'wEoyxE0GP2M',
+    '_JB0AO7QxSA',
+    '6SlgtELqOWc',
   ];
 
   @override
@@ -93,7 +93,6 @@ class _LibraryScreenState extends State<LibraryScreen> {
         SystemChrome.setPreferredOrientations(DeviceOrientation.values);
       },
       player: YoutubePlayer(
-        
         controller: _controller,
         showVideoProgressIndicator: true,
         progressIndicatorColor: Colors.blueAccent,
@@ -141,7 +140,10 @@ class _LibraryScreenState extends State<LibraryScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   _space,
-                  _text('Title', _videoMetaData.title,),
+                  _text(
+                    'Title',
+                    _videoMetaData.title,
+                  ),
                   _space,
                   _text('Network', _videoMetaData.author),
                   _space,

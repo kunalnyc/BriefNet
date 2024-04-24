@@ -1,4 +1,5 @@
 import 'package:briefnet/Screens/Membership/start_membership.dart';
+import 'package:briefnet/Screens/video/series.dart';
 import 'package:briefnet/Screens/video/video_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -183,6 +184,24 @@ class _NetflixLikeScreenState extends State<NetflixLikeScreen> {
                 ],
               ),
               GestureDetector(
+                onTap: () => Navigator.of(context).push(
+                  PageRouteBuilder(
+                    pageBuilder: (_, __, ___) => const Series(),
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) {
+                      var begin = const Offset(1.0, 0.0);
+                      var end = Offset.zero;
+                      var curve = Curves.ease;
+                      var tween = Tween(begin: begin, end: end)
+                          .chain(CurveTween(curve: curve));
+                      var offsetAnimation = animation.drive(tween);
+                      return SlideTransition(
+                        position: offsetAnimation,
+                        child: child,
+                      );
+                    },
+                  ),
+                ),
                 child: Card(
                   color: Colors.black,
                   child: Container(
@@ -257,7 +276,7 @@ class _NetflixLikeScreenState extends State<NetflixLikeScreen> {
                                         Navigator.of(context).push(
                                           PageRouteBuilder(
                                             pageBuilder: (_, __, ___) =>
-                                                const MembershipOptionsScreen(),
+                                                const Series(),
                                             transitionsBuilder: (context,
                                                 animation,
                                                 secondaryAnimation,

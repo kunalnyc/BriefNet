@@ -36,7 +36,7 @@ class VideoScreen extends StatelessWidget {
                   ),
                 ],
                 border: Border.all(color: Colors.white),
-                image: DecorationImage(
+                image: const DecorationImage(
                   image: NetworkImage(
                     'https://img.youtube.com/vi/vT1JzLTH4G4/maxresdefault.jpg',
                   ),
@@ -133,7 +133,7 @@ class VideoScreen extends StatelessWidget {
                                   backgroundColor: Colors.grey,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(4),
-                                    side: BorderSide(
+                                    side: const BorderSide(
                                       color: Colors.white,
                                       width: 1.5,
                                     ),
@@ -182,13 +182,13 @@ class VideoScreen extends StatelessWidget {
 class VideoPlayerScreen extends StatelessWidget {
   final String videoUrl;
 
-  VideoPlayerScreen({required this.videoUrl});
+  const VideoPlayerScreen({super.key, required this.videoUrl});
 
   @override
   Widget build(BuildContext context) {
     YoutubePlayerController _controller = YoutubePlayerController(
       initialVideoId: YoutubePlayer.convertUrlToId(videoUrl)!,
-      flags: YoutubePlayerFlags(
+      flags: const YoutubePlayerFlags(
         autoPlay: true,
         mute: false,
       ),
@@ -200,7 +200,7 @@ class VideoPlayerScreen extends StatelessWidget {
           controller: _controller,
           showVideoProgressIndicator: true,
           progressIndicatorColor: Colors.blueAccent,
-          progressColors: ProgressBarColors(
+          progressColors: const ProgressBarColors(
             playedColor: Colors.blue,
             handleColor: Colors.blueAccent,
           ),
