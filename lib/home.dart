@@ -1,3 +1,5 @@
+import 'package:briefnet/Screens/profile/profile.dart';
+import 'package:briefnet/Screens/research/groups.dart';
 import 'package:briefnet/viemo/library_media.dart';
 import 'package:briefnet/viemo/viemo_ui.dart';
 import 'package:flutter/cupertino.dart';
@@ -70,8 +72,8 @@ class _HomeState extends State<Home> {
         children: [
          const NetflixLikeScreen(),
            const LibraryScreen(),
-          ResearchScreen(),
-          ProfileScreen(),
+          ResearchGroupScreen(),
+          NetflixProfileScreen(),
         ],
       ),
       bottomNavigationBar: Container(

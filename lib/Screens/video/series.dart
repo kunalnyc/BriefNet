@@ -192,9 +192,70 @@ class _SeriesState extends State<Series> {
                     ),
                   ),
                 ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: double.infinity, // Make the button wide
+                  child: CupertinoButton(
+                    color: Colors.white,
+                    child: const Text(
+                      'Play',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    onPressed: () {},
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: double.infinity, // Make the button wide
+                  child: CupertinoButton(
+                    color: CupertinoColors.darkBackgroundGray,
+                    child: const Text(
+                      'Download',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    onPressed: () {},
+                  ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'Silicon Valley | Ten Years Later: The Extended Pied Piper Documentary | HBO',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 14.0, right: 14.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          CupertinoIcons.add,
+                          color: Colors.white,
+                        )),
+                    IconButton(
+                        onPressed: () {},
+                        icon: const Icon(CupertinoIcons.hand_thumbsup_fill,
+                            color: Colors.white)),
+                    IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.share,
+                            color: Colors.white)),
+                    IconButton(
+                        onPressed: () {},
+                        icon: const Icon(CupertinoIcons.download_circle_fill,
+                            color: Colors.white))
+                  ],
+                ),
               )
             ],
-          )
+          ),
         ],
       ),
     );

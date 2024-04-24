@@ -16,21 +16,31 @@ class VideoPlayerScreen extends StatelessWidget {
       ),
     );
 
-    return Scaffold(
-      body: Center(
-        child: YoutubePlayer(
-          controller: _controller,
-          showVideoProgressIndicator: true,
-          progressIndicatorColor: Colors.blueAccent,
-          progressColors: const ProgressBarColors(
-            playedColor: Colors.blue,
-            handleColor: Colors.blueAccent,
+    // ignore: deprecated_member_use
+    return WillPopScope(
+      onWillPop: () async {
+        // Pause the video before popping the screen
+        if (_controller.value.isPlaying) {
+          _controller.pause();
+        }
+        return true;
+      },
+      child: Scaffold(
+        body: Center(
+          child: YoutubePlayer(
+            controller: _controller,
+            showVideoProgressIndicator: true,
+            progressIndicatorColor: Colors.blueAccent,
+            progressColors: const ProgressBarColors(
+              playedColor: Colors.blue,
+              handleColor: Colors.blueAccent,
+            ),
+            onReady: () {
+              _controller.addListener(() {
+                // Add listener
+              });
+            },
           ),
-          onReady: () {
-            _controller.addListener(() {
-              // Add listener
-            });
-          },
         ),
       ),
     );
